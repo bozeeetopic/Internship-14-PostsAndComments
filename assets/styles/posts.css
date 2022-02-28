@@ -1,0 +1,133 @@
+@font-face {
+  font-family: "Heading";
+  src: url(../fonts/Lobster-Regular.ttf);
+}
+@font-face {
+  font-family: "Regular";
+  src: url(../fonts/Nunito-Italic.ttf);
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Regular";
+}
+h2 {
+  font-family: "Heading";
+}
+body {
+  background-image: url(../images/dogs-bg.png);
+  background-repeat: repeat-y;
+  background-size: contain;
+}
+
+.posts-holder {
+  margin: 0 auto;
+  max-width: 1300px;
+  background-image: url(../images/bg-paws.png);
+  background-repeat: repeat-y;
+  background-size: contain;
+}
+.post {
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 0 auto;
+  background-color: #fffd;
+  border-radius: 30px;
+  box-shadow: 1px 1px 8px 1px #888888;
+  padding: 25px;
+  margin-top: 10px;
+}
+.post:hover .post-details__author h4 {
+  color: #a5e06c;
+}
+.post:hover .post__like {
+  transform: scale(1.1);
+}
+.post:hover .post__footer__comments i {
+  font-size: larger;
+}
+
+.post__image {
+  margin: 0 auto;
+  width: 800px;
+  height: 400px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+.post__image img {
+  height: 400px;
+}
+.post__header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.post-details__author {
+  display: flex;
+}
+.post-details__author h4:hover {
+  transform: scale(1.1);
+}
+.post__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.post__footer__comments {
+  position: relative;
+  justify-self: center;
+}
+.post__footer__comments i {
+  font-size: medium;
+  position: absolute;
+  top: 0;
+  transition: font-size 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+.post__footer__comments:hover i:first-child {
+  top: 4px;
+}
+.post__footer__comments:hover i:last-child {
+  top: -4px;
+}
+.post__footer__likes {
+  display: flex;
+  align-items: center;
+}
+.post__like {
+  height: 50px;
+  width: 50px;
+  border-radius: 90px;
+  background-image: url(../images/unliked.png);
+  background-size: contain;
+  transition: transform 0.5s ease-in-out, background-image 0.3s ease-in-out;
+}
+.post__like:hover {
+  background-image: url(../images/like.png);
+}
+.post h4 {
+  margin: 0 10px;
+  transition: color 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.post__comments-holder {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.comment__info {
+  display: flex;
+  justify-content: space-between;
+}
+.comment {
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 0;
+  background-color: #fff;
+}

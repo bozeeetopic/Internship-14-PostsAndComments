@@ -1,0 +1,26 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  height: 100px;
+  margin-top: 10px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.member-buttons {
+  display: none;
+}
+
+.navbar-logo {
+  max-width: 300px;
+  max-height: 80px;
+}
+nav button {
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: large;
+  background-color: white;
+  border: 1px black solid;
+}
