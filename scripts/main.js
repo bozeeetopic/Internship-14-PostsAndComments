@@ -2,7 +2,7 @@ import { getComments } from "./comments.js";
 
 (async () => {
   try {
-    const response = await fetch("https://dummyapi.io/data/v1/post", {
+    const response = await fetch("https://dummyapi.io/data/v1/post?page=1", {
       headers: {
         "app-id": "621277c77c4302acef16b3a1",
       },
@@ -33,13 +33,19 @@ import { getComments } from "./comments.js";
 
           <div class="post__footer">
             <p>${post.tags}</p>
-            <div class="post__footer__comments" data-post-id="${post.id}">
-              <i class="fa fa-chevron-down"></i>
-              <i class="fa fa-chevron-down"></i>
-            </div>
             <div class="post__footer__likes">
               <h4>${post.likes}</h4>
               <div class="post__like"></div>
+            </div>
+          </div>
+          <div class"post__comments__button-wrapper">
+            <div class="post__comments__button" data-post-id="${post.id}">
+              <i class="fa fa-chevron-down"></i>
+              <i class="fa fa-chevron-down"></i>
+            </div>
+            <div class="post__comments__button close-comments">
+              <i class="fa fa-chevron-up"></i>
+              <i class="fa fa-chevron-up"></i>
             </div>
           </div>
 
@@ -53,11 +59,20 @@ import { getComments } from "./comments.js";
 
   let posts = document.querySelectorAll(".post");
   posts.forEach((post) => {
-    let commentButton = post.querySelector(".post__footer__comments");
-    let commentHolder = post.querySelector(".post__comments");
+    const commentButton = post.querySelector(".post__comments__button");
+    const commentRemoveButton = post.querySelector(".close-comments");
+    const commentHolder = post.querySelector(".post__comments");
     commentButton.addEventListener("click", async () => {
-      commentHolder.innerHTML = await getComments(commentButton.dataset.postId);
+      commentHolder.innerHTML += await getComments(
+        commentButton.dataset.postId
+      );
       commentButton.style.display = "none";
+      commentRemoveButton.style.display = "block";
+    });
+    commentRemoveButton.addEventListener("click", () => {
+      commentHolder.innerHTML = "";
+      commentButton.style.display = "block";
+      commentRemoveButton.style.display = "none";
     });
   });
 })();

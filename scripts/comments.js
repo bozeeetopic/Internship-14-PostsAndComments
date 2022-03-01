@@ -10,8 +10,10 @@ async function getComments(postId) {
     );
     const json = await response.json();
 
+    let user = localStorage.getItem("user");
     let stringToReturn = "";
-    json.data.forEach((comment) => {
+
+    json.data.reverse().forEach((comment) => {
       stringToReturn += `
           <div class="comment">
             <div class="comment__info">
@@ -28,6 +30,11 @@ async function getComments(postId) {
           </div>
           `;
     });
+    stringToReturn += '<div class="comments__input">';
+    stringToReturn += user
+      ? '<input type="text" placeholder="Write comment text here"><input type="submit">'
+      : "";
+    stringToReturn += "</div>";
     return stringToReturn;
   } catch (error) {
     console.log(error);
