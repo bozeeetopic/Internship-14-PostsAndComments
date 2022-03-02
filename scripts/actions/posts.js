@@ -10,11 +10,10 @@ async function getPosts(pageNumber) {
     json.data.forEach((post) => {
       document.querySelector(".posts-holder").innerHTML += postHTML(post);
     });
+    postOnClicks();
     return json.total;
   } catch (error) {
     console.log(error);
   }
-
-  postOnClicks();
 }
 export { getPosts };

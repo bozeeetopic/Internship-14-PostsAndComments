@@ -37,8 +37,9 @@ function postHTML(post) {
           <i class="fa fa-chevron-up"></i>
         </div>
       </div>
-
+      
       <div class="post__comments"></div>
+      <div class="post__comment__submit"></div>
     </div>
     `;
 }

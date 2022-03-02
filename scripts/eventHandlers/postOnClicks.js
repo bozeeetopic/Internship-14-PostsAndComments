@@ -1,4 +1,5 @@
 import { getComments } from "../actions/comments.js";
+import { commentOnClicks } from "./commentOnClicks.js";
 
 function postOnClicks() {
   let posts = document.querySelectorAll(".post");
@@ -11,6 +12,8 @@ function postOnClicks() {
       commentHolder.innerHTML += await getComments(
         commentButton.dataset.postId
       );
+
+      localStorage.getItem("user") ? commentOnClicks(post) : "";
       commentButton.style.display = "none";
       commentRemoveButton.style.display = "block";
     });

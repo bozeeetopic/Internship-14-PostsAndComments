@@ -25,27 +25,30 @@ nav button {
   background-color: white;
   border: 1px black solid;
 }
-.holder {
+.login__holder,
+.register__holder,
+.profile__holder {
   height: 100%;
   width: 100%;
-  background-color: #fff9;
+  background-color: #fffb;
   position: absolute;
   top: 0;
   z-index: 1;
   display: flex;
-  align-items: center;
+  align-content: center;
   display: none;
 }
-.holder > div,
-.holder form {
-  margin: auto;
+.login__form,
+.register__holder form {
+  margin: 20% auto;
   display: flex;
   height: fit-content;
   width: fit-content;
   flex-direction: column;
   align-items: center;
   z-index: 2;
-  padding: 100px;
+  padding: 200px;
+  background-color: white;
   background-image: url(../images/bg-paws.png);
 }
 .log-in__button:hover {
