@@ -14,7 +14,7 @@
     <title>DUMPosts</title>
   </head>
   <body>
-    <div class="login-holder">
+    <div class="login holder">
       <div class="login__form">
         <input type="text" placeholder="Name" />
         <input type="text" placeholder="LastName" />
@@ -23,17 +23,19 @@
       </div>
     </div>
 
-    <div class="register-holder">
+    <div class="register holder">
       <form action="/action_page.php" id="register">
         <input type="text" placeholder="Name" />
         <input type="text" placeholder="LastName" />
         <input type="text" placeholder="Email" />
         <input type="text" placeholder="Picture link" />
-        <label for="gender">Gender</label>
-        <select name="genders" id="gender" form="register">
-          <option value="male">male</option>
-          <option value="female">female</option>
-        </select>
+        <div class="input__gender">
+          <label for="gender">Gender</label>
+          <select name="genders" id="gender" form="register">
+            <option value="male">male</option>
+            <option value="female">female</option>
+          </select>
+        </div>
         <input type="date" placeholder="Date of birth" />
         <input type="text" placeholder="Country" />
         <input type="text" placeholder="City" />
@@ -42,16 +44,16 @@
       </form>
     </div>
 
-    <div class="profile-holder"></div>
+    <div class="profile holder"></div>
 
     <nav>
       <img class="navbar-logo" src="../assets/images/logo-posts-light.png" />
       <div class="member-buttons">
-        <button class="log-out button">Log out</button>
+        <button class="log-out__button">Log out</button>
       </div>
       <div class="guest-buttons">
-        <button class="log-in button">Log in</button>
-        <button class="register button">Register</button>
+        <button class="log-in__button">Log in</button>
+        <button class="register__button">Register</button>
       </div>
     </nav>
     <div class="posts-holder"></div>

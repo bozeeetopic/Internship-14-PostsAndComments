@@ -1,40 +1,18 @@
+import { fetchAll } from "./fetchers/fetchAll.js";
+import { commentHTML } from "./htmlBuilders/commentHTML.js";
+
 async function getComments(postId) {
   try {
-    const response = await fetch(
-      `https://dummyapi.io/data/v1/post/${postId}/comment`,
-      {
-        headers: {
-          "app-id": "621277c77c4302acef16b3a1",
-        },
-      }
-    );
-    const json = await response.json();
-
-    let user = localStorage.getItem("user");
+    const json = await fetchAll(`post/${postId}/comment?page=`);
+    console.log(json);
     let stringToReturn = "";
 
-    json.data.reverse().forEach((comment) => {
-      stringToReturn += `
-          <div class="comment">
-            <div class="comment__info">
-              <p>
-                ${comment.owner.title} 
-                ${comment.owner.firstName} 
-                ${comment.owner.lastName}    
-              </p>
-              <p>    
-                ${new Date(comment.publishDate).toLocaleString()}
-              </p>
-            </div>
-            <p>${comment.message}</p>
-          </div>
-          `;
+    json.reverse().forEach((comment) => {
+      stringToReturn += commentHTML(comment);
     });
-    stringToReturn += '<div class="comments__input">';
-    stringToReturn += user
-      ? '<input type="text" placeholder="Write comment text here"><input type="submit">'
+    stringToReturn += localStorage.getItem("user")
+      ? '<div class="comments__input"><input type="text" placeholder="Write comment text here"><input type="submit"></div>'
       : "";
-    stringToReturn += "</div>";
     return stringToReturn;
   } catch (error) {
     console.log(error);
