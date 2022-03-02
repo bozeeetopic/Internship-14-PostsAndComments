@@ -144,3 +144,17 @@ body {
 .close-comments {
   display: none;
 }
+
+.page-buttons {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px auto;
+}
+.page-buttons a {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  justify-content: space-between;
+}

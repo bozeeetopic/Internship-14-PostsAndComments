@@ -6,6 +6,7 @@ async function getPosts(pageNumber) {
   try {
     let json = await fetchSingle(`post?page=${pageNumber}`);
 
+    document.querySelector(".posts-holder").innerHTML = "";
     json.data.forEach((post) => {
       document.querySelector(".posts-holder").innerHTML += postHTML(post);
     });
