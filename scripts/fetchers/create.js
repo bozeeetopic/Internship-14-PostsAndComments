@@ -7,11 +7,15 @@ async function fetchCreate(path, data) {
       headers: {
         "app-id": appId,
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
       },
-      body: JSON.stringify(data),
+      body: data,
+      mode: "no-cors",
     });
-
-    return await response.json();
+    let nj = await response.json();
+    console.log(nj);
+    return await nj;
   } catch (error) {
     console.log(error);
   }

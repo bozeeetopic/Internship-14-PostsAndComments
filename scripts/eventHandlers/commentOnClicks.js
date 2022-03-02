@@ -8,7 +8,10 @@ function commentOnClicks(post) {
   const submitComment = post.querySelector(".post__comment__submit");
 
   submitComment.innerHTML = localStorage.getItem("user")
-    ? '<div class="comments__input"><input class="comment__text" type="text" placeholder="Write comment text here"><input class="comment__submit" type="submit"></div>'
+    ? "<div class='comments__input'>" +
+      "<input class='comment__text' type='text' placeholder='Write comment text here'>" +
+      "<input class='comment__submit' type='submit'>" +
+      "</div>"
     : "";
   const commentButton = post.querySelector(".comment__submit");
   const commentValue = post.querySelector(".comment__text");
@@ -16,18 +19,17 @@ function commentOnClicks(post) {
   commentButton.addEventListener("click", async () => {
     const user = await fetchSingle(`user/${localStorage.getItem("user")}`);
     let comment = {
+      message: commentValue.value,
       owner: {
-        id: user.id,
         firstName: user.firstName,
+        id: user.id,
         lastName: user.lastName,
         picture: user.picture,
         title: user.title,
       },
-      message: commentValue.value,
-      publishDate: new Date(),
       post: postId.dataset.postId,
+      publishDate: new Date(),
     };
-    console.log(comment);
     await fetchCreate("comment/create", comment);
     commentHolder.innerHTML += commentHTML(comment);
     commentValue.value = "";

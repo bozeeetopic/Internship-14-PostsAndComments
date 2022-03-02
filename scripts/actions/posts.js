@@ -8,6 +8,7 @@ async function getPosts(pageNumber) {
 
     document.querySelector(".posts-holder").innerHTML = "";
     json.data.forEach((post) => {
+      console.log(post);
       document.querySelector(".posts-holder").innerHTML += postHTML(post);
     });
     postOnClicks();
