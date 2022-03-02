@@ -1,5 +1,5 @@
-import { fetchAll } from "./fetchers/fetchAll.js";
-import { commentHTML } from "./htmlBuilders/commentHTML.js";
+import { fetchAll } from "../fetchers/fetchAll.js";
+import { commentHTML } from "../htmlBuilders/commentHTML.js";
 
 async function getComments(postId) {
   try {
